@@ -69,6 +69,8 @@ dependencies {
 
     implementation(Dependencies.coil)
 
+    implementation(Dependencies.navigation)
+
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.junitExt)
     androidTestImplementation(Dependencies.espresso)
