@@ -10,4 +10,6 @@ object Versions {
     const val appCompat = "1.3.1"
     const val material = "1.4.0"
     const val compose = "1.0.0"
+    const val lifecycle = "2.3.1"
+    const val coil = "1.3.1"
 }
