@@ -63,6 +63,8 @@ dependencies {
     androidTestImplementation(Dependencies.composeUiTest)
     debugImplementation(Dependencies.composeTool)
 
+    implementation(Dependencies.constraintCompose)
+
     implementation(Dependencies.lifecycle)
 
     implementation(Dependencies.activityCompose)

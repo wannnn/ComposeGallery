@@ -12,11 +12,13 @@ object Dependencies {
     const val composeUiTest = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
     const val composeTool = "androidx.compose.ui:ui-tooling:${Versions.compose}"
 
+    const val constraintCompose = "androidx.constraintlayout:constraintlayout-compose:${Versions.constraintCompose}"
+
     const val lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
 
     const val coil = "io.coil-kt:coil-compose:${Versions.coil}"
 
-    val navigation = "androidx.navigation:navigation-compose:${Versions.navigation}"
+    const val navigation = "androidx.navigation:navigation-compose:${Versions.navigation}"
 
     const val junit = "junit:junit:4.+"
     const val junitExt = "androidx.test.ext:junit:1.1.3"
