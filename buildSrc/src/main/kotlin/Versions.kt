@@ -14,4 +14,6 @@ object Versions {
     const val lifecycle = "2.3.1"
     const val coil = "1.3.1"
     const val navigation = "2.4.0-alpha06"
+    const val pager = "0.16.0"
+    const val nestedScroll = "0.7.0"
 }

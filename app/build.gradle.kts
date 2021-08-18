@@ -73,6 +73,11 @@ dependencies {
 
     implementation(Dependencies.navigation)
 
+    implementation(Dependencies.pager)
+    implementation(Dependencies.indicators)
+
+    implementation(Dependencies.nestedScrollView)
+
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.junitExt)
     androidTestImplementation(Dependencies.espresso)

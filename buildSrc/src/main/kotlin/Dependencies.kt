@@ -20,6 +20,12 @@ object Dependencies {
 
     const val navigation = "androidx.navigation:navigation-compose:${Versions.navigation}"
 
+    const val pager = "com.google.accompanist:accompanist-pager:${Versions.pager}"
+    const val indicators = "com.google.accompanist:accompanist-pager-indicators:${Versions.pager}"
+
+    // third
+    const val nestedScrollView = "com.github.Tlaster:NestedScrollView:${Versions.nestedScroll}"
+
     const val junit = "junit:junit:4.+"
     const val junitExt = "androidx.test.ext:junit:1.1.3"
     const val espresso = "androidx.test.espresso:espresso-core:3.4.0"

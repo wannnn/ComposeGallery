@@ -1,14 +1,12 @@
 package com.claire.composegallery.ui.photographer
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -23,16 +21,32 @@ import coil.compose.rememberImagePainter
 import coil.transform.CircleCropTransformation
 import com.claire.composegallery.R
 import com.claire.composegallery.ui.theme.ComposeGalleryTheme
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.pagerTabIndicatorOffset
+import com.google.accompanist.pager.rememberPagerState
+import kotlinx.coroutines.launch
+import moe.tlaster.nestedscrollview.VerticalNestedScrollView
+import moe.tlaster.nestedscrollview.rememberNestedScrollViewState
 
+@ExperimentalFoundationApi
+@ExperimentalPagerApi
 @Composable
 fun PhotographerPage() {
 
-    Scaffold(
-        topBar = { MyAppBar() }
-    ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            PhotographerInfo()
-        }
+    Scaffold(topBar = {
+        MyAppBar()
+    }) {
+        val nestedScrollViewState = rememberNestedScrollViewState()
+        VerticalNestedScrollView(
+            state = nestedScrollViewState,
+            header = {
+                Column {
+                    PhotographerInfo()
+                }
+            },
+            content = { Pager() }
+        )
     }
 }
 
@@ -56,7 +70,7 @@ fun MyAppBar() {
 fun PhotographerInfo() {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.padding(bottom = 16.dp)
+        modifier = Modifier.padding(16.dp)
     ) {
         Image(
             painter = rememberImagePainter(
@@ -77,9 +91,59 @@ fun PhotographerInfo() {
 
     ImgText(R.drawable.ic_round_location_on_24, "Salt Lake City")
 
-    Spacer(Modifier.size(16.dp))
+    Text(
+        text = "Download free, beautiful high-quality photos curated by Nick.",
+        modifier = Modifier.padding(16.dp)
+    )
+}
 
-    Text(text = "Download free, beautiful high-quality photos curated by Nick.")
+@ExperimentalFoundationApi
+@ExperimentalPagerApi
+@Composable
+fun Pager() {
+
+    val scope = rememberCoroutineScope()
+
+    val tabs = listOf(
+        R.drawable.ic_round_photo_24,
+        R.drawable.ic_round_favorite_24,
+        R.drawable.ic_round_layers_24
+    )
+
+    val pagerState = rememberPagerState(pageCount = tabs.size)
+
+    Column {
+        TabRow(
+            selectedTabIndex = pagerState.currentPage,
+            indicator = { tabPositions ->
+                TabRowDefaults.Indicator(
+                    Modifier.pagerTabIndicatorOffset(pagerState, tabPositions)
+                )
+            }
+        ) {
+            // Add tabs for all of our pages
+            tabs.forEachIndexed { index, icon ->
+                Tab(
+                    icon = { Image(painter = painterResource(icon), contentDescription = null) },
+                    selected = pagerState.currentPage == index,
+                    onClick = {
+                        scope.launch {
+                            pagerState.animateScrollToPage(index)
+                        }
+                    },
+                )
+            }
+        }
+
+        HorizontalPager(state = pagerState) { page ->
+            LazyColumn {
+                items(100) {
+                    Text(text = "item $it", Modifier.fillMaxWidth())
+                }
+            }
+        }
+    }
+
 }
 
 @Composable
@@ -109,6 +173,7 @@ fun ConnectedBox(icons: List<Int>) {
 fun ImgText(img: Int, text: String) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.padding(start = 16.dp)
     ) {
         Image(
             painter = painterResource(img),
@@ -120,6 +185,8 @@ fun ImgText(img: Int, text: String) {
     }
 }
 
+@ExperimentalFoundationApi
+@ExperimentalPagerApi
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
