@@ -23,6 +23,13 @@ object Dependencies {
     const val pager = "com.google.accompanist:accompanist-pager:${Versions.pager}"
     const val indicators = "com.google.accompanist:accompanist-pager-indicators:${Versions.pager}"
 
+    const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
+
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.retrofitConverter}"
+
+    const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.serialization}"
+
     // third
     const val nestedScrollView = "com.github.Tlaster:NestedScrollView:${Versions.nestedScroll}"
 

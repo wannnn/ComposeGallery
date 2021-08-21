@@ -1,10 +1,13 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    id("org.jetbrains.kotlin.plugin.serialization") version Versions.kotlin
+    kotlin("android")
+    kotlin("kapt")
 }
 
 android {
     compileSdk = Versions.compileSdk
+    buildToolsVersion = Versions.buildToolsVersion
 
     defaultConfig {
         applicationId = "com.claire.composegallery"
@@ -73,9 +76,21 @@ dependencies {
 
     implementation(Dependencies.navigation)
 
+    // pager
     implementation(Dependencies.pager)
     implementation(Dependencies.indicators)
 
+    // okhttp
+    implementation(Dependencies.okhttp)
+
+    // retrofit
+    implementation(Dependencies.retrofit)
+    implementation(Dependencies.retrofitConverter)
+
+    // kotlin serialization
+    implementation(Dependencies.serialization)
+
+    // third
     implementation(Dependencies.nestedScrollView)
 
     testImplementation(Dependencies.junit)
