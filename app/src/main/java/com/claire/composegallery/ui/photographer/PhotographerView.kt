@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -138,7 +139,7 @@ fun Pager() {
         HorizontalPager(state = pagerState) { page ->
             LazyColumn {
                 items(100) {
-                    Text(text = "item $it", Modifier.fillMaxWidth())
+                    Collection()
                 }
             }
         }
@@ -182,6 +183,47 @@ fun ImgText(img: Int, text: String) {
         )
         Spacer(Modifier.size(5.dp))
         Text(text = text)
+    }
+}
+
+@Composable
+fun Collection() {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(16.dp),
+    ) {
+        Image(
+            painter = rememberImagePainter(
+                data = "https://picsum.photos/id/103/500",
+            ),
+            contentDescription = null,
+            modifier = Modifier.size(250.dp)
+        )
+        
+        Spacer(modifier = Modifier.size(8.dp))
+
+        Column(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Image(
+                painter = rememberImagePainter(
+                    data = "https://picsum.photos/id/103/200",
+                ),
+                contentDescription = null,
+                modifier = Modifier.size(122.dp),
+                contentScale = ContentScale.Crop
+            )
+
+            Spacer(modifier = Modifier.size(6.dp))
+
+            Image(
+                painter = rememberImagePainter(
+                    data = "https://picsum.photos/id/103/200",
+                ),
+                contentDescription = null,
+                modifier = Modifier.size(122.dp),
+                contentScale = ContentScale.Crop
+            )
+        }
     }
 }
 
