@@ -1,8 +1,9 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.plugin.serialization") version Versions.kotlin
     kotlin("android")
     kotlin("kapt")
+    id("org.jetbrains.kotlin.plugin.serialization") version Versions.kotlin
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -62,6 +63,7 @@ dependencies {
 
     implementation(Dependencies.composeUi)
     implementation(Dependencies.composeMaterial)
+    implementation(Dependencies.composeRuntime)
     implementation(Dependencies.composeToolPreview)
     androidTestImplementation(Dependencies.composeUiTest)
     debugImplementation(Dependencies.composeTool)
@@ -69,10 +71,16 @@ dependencies {
     implementation(Dependencies.constraintCompose)
 
     implementation(Dependencies.lifecycle)
+    implementation(Dependencies.lifecycleViewModel)
 
     implementation(Dependencies.activityCompose)
 
     implementation(Dependencies.coil)
+
+    // daggerHilt
+    implementation(Dependencies.daggerHilt)
+    kapt(Dependencies.daggerHiltCompiler)
+    implementation(Dependencies.hiltNavigation)
 
     implementation(Dependencies.navigation)
 

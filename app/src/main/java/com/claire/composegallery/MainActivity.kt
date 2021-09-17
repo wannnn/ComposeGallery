@@ -24,7 +24,9 @@ import coil.transform.CircleCropTransformation
 import com.claire.composegallery.ui.photographer.PhotographerPage
 import com.claire.composegallery.ui.theme.ComposeGalleryTheme
 import com.google.accompanist.pager.ExperimentalPagerApi
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 @ExperimentalPagerApi
 @ExperimentalFoundationApi
 class MainActivity : ComponentActivity() {
@@ -35,7 +37,7 @@ class MainActivity : ComponentActivity() {
             ComposeGalleryTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    PhotographerPage()
+                    PhotographerPage("yann_allegre")
                 }
             }
         }
