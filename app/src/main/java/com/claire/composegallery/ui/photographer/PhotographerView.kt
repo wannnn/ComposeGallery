@@ -95,7 +95,9 @@ fun PhotographerInfo(photographer: Photographer) {
             painter = rememberImagePainter(
                 data = photographer.profile_image.large,
                 builder = {
+                    crossfade(true)
                     transformations(CircleCropTransformation())
+                    placeholder(R.drawable.ic_round_person_add_24)
                 }
             ),
             contentDescription = null,

@@ -49,6 +49,8 @@ android {
     }
 
     packagingOptions {
+        // Multiple dependency bring these files in. Exclude them to enable
+        // our test APK to build (has no effect on our AARs)
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -57,52 +59,52 @@ android {
 
 dependencies {
 
-    implementation(Dependencies.core)
-    implementation(Dependencies.appcompat)
-    implementation(Dependencies.material)
+    implementation(Libs.AndroidX.core)
+    implementation(Libs.AndroidX.appcompat)
+    implementation(Libs.material)
 
-    implementation(Dependencies.composeUi)
-    implementation(Dependencies.composeMaterial)
-    implementation(Dependencies.composeRuntime)
-    implementation(Dependencies.composeToolPreview)
-    androidTestImplementation(Dependencies.composeUiTest)
-    debugImplementation(Dependencies.composeTool)
+    implementation(Libs.AndroidX.Compose.composeUi)
+    implementation(Libs.AndroidX.Compose.composeMaterial)
+    implementation(Libs.AndroidX.Compose.composeRuntime)
+    implementation(Libs.AndroidX.Compose.composeToolPreview)
+    androidTestImplementation(Libs.AndroidX.Compose.composeUiTest)
+    debugImplementation(Libs.AndroidX.Compose.composeTool)
 
-    implementation(Dependencies.constraintCompose)
+    implementation(Libs.AndroidX.constraintCompose)
 
-    implementation(Dependencies.lifecycle)
-    implementation(Dependencies.lifecycleViewModel)
+    implementation(Libs.AndroidX.Lifecycle.lifecycle)
+    implementation(Libs.AndroidX.Lifecycle.lifecycleViewModel)
 
-    implementation(Dependencies.activityCompose)
+    implementation(Libs.AndroidX.Activity.activityCompose)
 
-    implementation(Dependencies.coil)
+    implementation(Libs.ThirdParty.coil)
 
     // daggerHilt
-    implementation(Dependencies.daggerHilt)
-    kapt(Dependencies.daggerHiltCompiler)
-    implementation(Dependencies.hiltNavigation)
+    implementation(Libs.AndroidX.Hilt.daggerHilt)
+    kapt(Libs.AndroidX.Hilt.daggerHiltCompiler)
+    implementation(Libs.AndroidX.Hilt.hiltNavigation)
 
-    implementation(Dependencies.navigation)
+    implementation(Libs.AndroidX.Navigation.navigation)
 
     // pager
-    implementation(Dependencies.pager)
-    implementation(Dependencies.indicators)
+    implementation(Libs.ThirdParty.pager)
+    implementation(Libs.ThirdParty.indicators)
 
     // okhttp
-    implementation(Dependencies.okhttp)
+    implementation(Libs.NetWorking.okhttp)
 
     // retrofit
-    implementation(Dependencies.retrofit)
-    implementation(Dependencies.retrofitConverter)
+    implementation(Libs.NetWorking.retrofit)
+    implementation(Libs.NetWorking.retrofitConverter)
 
     // kotlin serialization
-    implementation(Dependencies.serialization)
+    implementation(Libs.Kotlin.serialization)
 
     // third
-    implementation(Dependencies.nestedScrollView)
+    implementation(Libs.ThirdParty.nestedScrollView)
 
-    testImplementation(Dependencies.junit)
-    androidTestImplementation(Dependencies.junitExt)
-    androidTestImplementation(Dependencies.espresso)
+    testImplementation(Libs.junit)
+    androidTestImplementation(Libs.AndroidX.Test.junitExt)
+    androidTestImplementation(Libs.AndroidX.Test.espresso)
 
 }

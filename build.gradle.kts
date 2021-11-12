@@ -5,9 +5,9 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath(Dependencies.gradle)
-        classpath(Dependencies.kgp)
-        classpath(Dependencies.daggerHiltPlugin)
+        classpath(Libs.gradle)
+        classpath(Libs.Kotlin.kgp)
+        classpath(Libs.AndroidX.Hilt.daggerHiltPlugin)
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

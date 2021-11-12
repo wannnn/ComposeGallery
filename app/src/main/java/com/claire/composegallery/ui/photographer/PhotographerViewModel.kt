@@ -27,25 +27,39 @@ class PhotographerViewModel @Inject constructor(
 
     fun getPhotographer(name: String) = viewModelScope.launch {
 
-        val result = repo.getPhotographer(name)
-
-        result.onSuccess {
-            println(it)
-            _photographer.value = it
-        }.onFailure {
-
-        }
+//        val result = repo.getPhotographer(name)
+//
+//        result.onSuccess {
+//            println(it)
+//            _photographer.value = it
+//        }.onFailure {
+//
+//        }
     }
 
     fun getPhotographerPhotos(name: String) = viewModelScope.launch {
 
-        val result = repo.getPhotographerPhotos(name)
-
-        result.onSuccess {
-            println(it)
-            _photos.value = it
-        }.onFailure {
-
-        }
+        _photos.value = fakeImgs
+//        val result = repo.getPhotographerPhotos(name)
+//
+//        result.onSuccess {
+//            println(it)
+//            _photos.value = it
+//        }.onFailure {
+//
+//        }
     }
+
+    private val fakeImgs = listOf(
+        Photos(urls = Photos.Urls("https://picsum.photos/id/1018/800/500")),
+        Photos(urls = Photos.Urls("https://picsum.photos/id/1015/800/500")),
+        Photos(urls = Photos.Urls("https://picsum.photos/id/100/800/500")),
+        Photos(urls = Photos.Urls("https://picsum.photos/id/1000/800/500")),
+        Photos(urls = Photos.Urls("https://picsum.photos/id/1001/800/500")),
+        Photos(urls = Photos.Urls("https://picsum.photos/id/1014/800/500")),
+        Photos(urls = Photos.Urls("https://picsum.photos/id/102/800/500")),
+        Photos(urls = Photos.Urls("https://picsum.photos/id/1027/800/500")),
+        Photos(urls = Photos.Urls("https://picsum.photos/id/103/800/500")),
+        Photos(urls = Photos.Urls("https://picsum.photos/id/1033/800/500")),
+    )
 }
