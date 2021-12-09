@@ -1,2 +1,2 @@
-rootProject.name = "ComposeGallery"
+rootProject.name = "Unsplash"
 include(":app")

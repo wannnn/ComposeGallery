@@ -11,7 +11,7 @@ android {
     buildToolsVersion = Versions.buildToolsVersion
 
     defaultConfig {
-        applicationId = "com.claire.composegallery"
+        applicationId = "com.claire.unsplash"
         minSdk = Versions.minSdk
         targetSdk = Versions.targetSdk
         versionCode = Versions.versionCode
