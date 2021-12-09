@@ -65,6 +65,8 @@ dependencies {
 
     implementation(Libs.AndroidX.Compose.composeUi)
     implementation(Libs.AndroidX.Compose.composeMaterial)
+    implementation(Libs.AndroidX.Compose.composeMaterial3)
+    implementation(Libs.AndroidX.Compose.composeMaterialExtended)
     implementation(Libs.AndroidX.Compose.composeRuntime)
     implementation(Libs.AndroidX.Compose.composeToolPreview)
     androidTestImplementation(Libs.AndroidX.Compose.composeUiTest)

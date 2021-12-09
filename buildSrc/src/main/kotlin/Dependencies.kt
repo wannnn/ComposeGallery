@@ -13,6 +13,7 @@ object Versions {
     const val material = "1.4.0"
     const val activityCompose = "1.3.1"
     const val compose = "1.1.0-beta04"
+    const val compose_material3 = "1.0.0-alpha02"
     const val constraintCompose = "1.0.0-beta02"
     const val lifecycle = "2.3.1"
     const val lifecycleViewModel = "1.0.0-alpha07"
@@ -59,6 +60,8 @@ object Libs {
         object Compose {
             const val composeUi = "androidx.compose.ui:ui:${Versions.compose}"
             const val composeMaterial = "androidx.compose.material:material:${Versions.compose}"
+            const val composeMaterial3 = "androidx.compose.material3:material3:${Versions.compose_material3}"
+            const val composeMaterialExtended = "androidx.compose.material:material-icons-extended:${Versions.compose}"
             const val composeRuntime = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
             const val composeToolPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
             const val composeUiTest = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
