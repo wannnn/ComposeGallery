@@ -91,6 +91,8 @@ object Libs {
         const val coil = "io.coil-kt:coil-compose:${Versions.coil}"
         const val pager = "com.google.accompanist:accompanist-pager:${Versions.accompanist}"
         const val indicators = "com.google.accompanist:accompanist-pager-indicators:${Versions.accompanist}"
+        const val insets = "com.google.accompanist:accompanist-insets:${Versions.accompanist}"
+        const val insets_ui = "com.google.accompanist:accompanist-insets-ui:${Versions.accompanist}"
         const val nestedScrollView = "com.github.Tlaster:NestedScrollView:${Versions.nestedScroll}"
     }
 }

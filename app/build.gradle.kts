@@ -89,6 +89,8 @@ dependencies {
     // pager
     implementation(Libs.ThirdParty.pager)
     implementation(Libs.ThirdParty.indicators)
+    implementation(Libs.ThirdParty.insets)
+    implementation(Libs.ThirdParty.insets_ui)
 
     // okhttp
     implementation(Libs.NetWorking.okhttp)
