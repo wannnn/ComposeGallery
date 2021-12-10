@@ -93,6 +93,7 @@ dependencies {
     implementation(Libs.ThirdParty.indicators)
     implementation(Libs.ThirdParty.insets)
     implementation(Libs.ThirdParty.insets_ui)
+    implementation(Libs.ThirdParty.system_ui)
 
     // okhttp
     implementation(Libs.NetWorking.okhttp)

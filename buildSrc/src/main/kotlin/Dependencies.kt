@@ -96,6 +96,7 @@ object Libs {
         const val indicators = "com.google.accompanist:accompanist-pager-indicators:${Versions.accompanist}"
         const val insets = "com.google.accompanist:accompanist-insets:${Versions.accompanist}"
         const val insets_ui = "com.google.accompanist:accompanist-insets-ui:${Versions.accompanist}"
+        const val system_ui = "com.google.accompanist:accompanist-systemuicontroller:${Versions.accompanist}"
         const val nestedScrollView = "com.github.Tlaster:NestedScrollView:${Versions.nestedScroll}"
     }
 }
