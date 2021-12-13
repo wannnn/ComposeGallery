@@ -12,12 +12,13 @@ object Versions {
     const val appCompat = "1.3.1"
     const val material = "1.4.0"
     const val activityCompose = "1.3.1"
+    const val activityKtx = "1.4.0"
     const val compose = "1.1.0-beta04"
     const val compose_material3 = "1.0.0-alpha02"
     const val constraintCompose = "1.0.0-beta02"
     const val lifecycle = "2.3.1"
     const val lifecycleViewModel = "1.0.0-alpha07"
-    const val coil = "1.3.1"
+    const val coil = "1.4.0"
     const val daggerHilt = "2.38.1"
     const val hiltNavigation = "1.0.0-alpha03"
     const val navigation = "2.4.0-alpha06"
@@ -55,6 +56,7 @@ object Libs {
 
         object Activity {
             const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
+            const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
         }
 
         object Compose {

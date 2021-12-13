@@ -1,13 +1,15 @@
 package com.claire.unsplash.ui.explore
 
+import androidx.compose.material.ScrollableTabRow
 import androidx.compose.material.Tab
-import androidx.compose.material.TabRow
 import androidx.compose.material.TabRowDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import com.claire.unsplash.ui.theme.white
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
 
@@ -20,10 +22,8 @@ fun Tabs(
 
     val scope = rememberCoroutineScope()
 
-    TabRow(
-        // Our selected tab is our current page
+    ScrollableTabRow(
         selectedTabIndex = pagerState.currentPage,
-        // Override the indicator, using the provided pagerTabIndicatorOffset modifier
         indicator = { tabPositions ->
             TabRowDefaults.Indicator(
                 Modifier.pagerTabIndicatorOffset(pagerState, tabPositions)
@@ -35,7 +35,11 @@ fun Tabs(
         pages.forEachIndexed { index, title ->
             Tab(
                 text = {
-                    Text(title)
+                    Text(
+                        text = title,
+                        color = white,
+                        fontWeight = FontWeight.Bold
+                    )
                 },
                 selected = pagerState.currentPage == index,
                 onClick = {

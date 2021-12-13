@@ -1,34 +1,67 @@
 package com.claire.unsplash.ui.explore
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.blur
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import coil.compose.rememberImagePainter
 import com.claire.unsplash.R
+import com.claire.unsplash.data.uimodel.ExploreData
 import com.claire.unsplash.ui.theme.UnsplashTheme
 import com.claire.unsplash.ui.theme.white
 
 @Composable
-fun PhotoList() {
+fun PhotoList(photos: List<ExploreData.PhotoData>) {
     LazyColumn {
-        items(10) {
-            PhotoItem()
+        itemsIndexed(photos) { index, item ->
+            PhotoItem(item)
         }
     }
 }
 
 @Composable
-fun PhotoItem() {
-    Box {
+fun PhotoItem(data: ExploreData.PhotoData) {
+    Box(
+        modifier = Modifier.clickable {
+
+        },
+        contentAlignment = Alignment.BottomStart
+    ) {
         Image(
-            painter = painterResource(id = R.drawable.home_banner),
-            contentDescription = null
+            painter = rememberImagePainter(
+                data = data.url,
+                builder = {
+                    crossfade(true)
+                    placeholder(R.drawable.placeholder)
+                }
+            ),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize().aspectRatio(4f/3f),
+            contentScale = ContentScale.Crop
         )
         Text(
-            text = "Testttttt"
+            text = data.author,
+            modifier = Modifier
+                .padding(start = 15.dp, bottom = 15.dp)
+                .offset(
+                    x = 2.dp,
+                    y = 2.dp
+                )
+                .blur(radius = 2.dp)
+                .alpha(0.75f),
+            fontSize = 14.sp,
+            color = white
         )
     }
 }
@@ -37,6 +70,6 @@ fun PhotoItem() {
 @Composable
 fun PhotoPreview() {
     UnsplashTheme {
-        PhotoItem()
+        PhotoItem(photosData1[0])
     }
 }

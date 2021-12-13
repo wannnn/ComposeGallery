@@ -21,4 +21,4 @@ val gray_aa = Color(0xFFAAAAAA)
 val gray_4a = Color(0xFF4A4A4A)
 val black = Color(0xFF000000)
 
-const val AlphaNearOpaque = 0.85f
+const val AlphaNearOpaque = 0.75f

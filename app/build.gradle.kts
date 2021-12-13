@@ -78,6 +78,7 @@ dependencies {
     implementation(Libs.AndroidX.Lifecycle.lifecycleViewModel)
 
     implementation(Libs.AndroidX.Activity.activityCompose)
+    implementation(Libs.AndroidX.Activity.activityKtx)
 
     implementation(Libs.ThirdParty.coil)
 

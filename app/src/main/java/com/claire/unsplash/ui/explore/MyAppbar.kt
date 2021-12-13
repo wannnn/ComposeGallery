@@ -14,7 +14,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.claire.unsplash.R
+import com.claire.unsplash.ui.theme.white
 import com.google.accompanist.insets.LocalWindowInsets
 import com.google.accompanist.insets.rememberInsetsPaddingValues
 import com.google.accompanist.insets.ui.TopAppBar
@@ -32,7 +34,9 @@ fun MyAppbar() {
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = stringResource(id = R.string.app_name),
-                fontWeight = FontWeight.Bold
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold,
+                color = white
             )
         },
         backgroundColor = Color.Transparent,
@@ -40,7 +44,10 @@ fun MyAppbar() {
             IconButton(onClick = {
 
             }) {
-                Icon(Icons.TwoTone.FilterVintage, contentDescription = null)
+                Icon(
+                    Icons.TwoTone.FilterVintage
+                    , contentDescription = null
+                )
             }
         },
         elevation = 0.dp

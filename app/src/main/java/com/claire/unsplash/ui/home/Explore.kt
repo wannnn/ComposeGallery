@@ -1,10 +1,13 @@
 package com.claire.unsplash.ui.home
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import com.claire.unsplash.ui.explore.MyAppbar
 import com.claire.unsplash.ui.explore.Tabs
 import com.claire.unsplash.ui.explore.PhotoList
+import com.claire.unsplash.ui.explore.exploreFakeData
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
@@ -13,19 +16,24 @@ import com.google.accompanist.pager.rememberPagerState
 @Composable
 fun Explore() {
 
-    val tabs = listOf("Editorial", "Holidays", "Blockchain", "Wallpapers", "Architecture", "Nature")
+    val fakeData = exploreFakeData
+
     val pagerState = rememberPagerState()
 
     HorizontalPager(
-        count = tabs.size,
+        count = fakeData.tabs.size,
+        modifier = Modifier.fillMaxWidth(),
         state = pagerState,
     ) { page ->
-        PhotoList()
+        PhotoList(fakeData.tabs[page].photos)
     }
 
-    Column {
+    Column(
+        modifier = Modifier.fillMaxWidth()
+    ) {
         MyAppbar()
-        Tabs(pagerState, tabs)
+        Tabs(pagerState, fakeData.tabs.map { it.tabName })
     }
 
 }
+
