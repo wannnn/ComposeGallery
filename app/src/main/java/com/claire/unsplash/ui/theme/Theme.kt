@@ -9,16 +9,16 @@ import androidx.compose.runtime.SideEffect
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200,
+    primary = black,
+    primaryVariant = white,
+    secondary = white,
     background = white
 )
 
 private val LightColorPalette = lightColors(
-    primary = gray_4a,
-    primaryVariant = gray_aa,
-    secondary = Teal200,
+    primary = black,
+    primaryVariant = white,
+    secondary = white,
     background = white
 
     /* Other default colors to override

@@ -11,7 +11,12 @@ import com.claire.unsplash.ui.home.UnsplashBottomBar
 import com.claire.unsplash.ui.home.homeNavGraph
 import com.claire.unsplash.ui.theme.UnsplashTheme
 import com.google.accompanist.insets.ProvideWindowInsets
+import com.google.accompanist.insets.navigationBarsHeight
+import com.google.accompanist.insets.navigationBarsPadding
+import com.google.accompanist.insets.systemBarsPadding
+import com.google.accompanist.pager.ExperimentalPagerApi
 
+@ExperimentalPagerApi
 @Composable
 fun UnsplashApp() {
     ProvideWindowInsets {
@@ -21,6 +26,7 @@ fun UnsplashApp() {
 //            val appState = rememberUnsplashAppState()
 
             Scaffold(
+                modifier = Modifier.navigationBarsPadding(),
                 bottomBar = {
                     UnsplashBottomBar(
                         navController = navController,
@@ -33,7 +39,7 @@ fun UnsplashApp() {
 
                 NavHost(
                     navController = navController,
-                    startDestination = HomeSections.Photo.route,
+                    startDestination = HomeSections.Explore.route,
                     modifier = Modifier.padding(innerPadding)
                 ) {
                     homeNavGraph()

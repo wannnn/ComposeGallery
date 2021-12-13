@@ -18,17 +18,19 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.claire.unsplash.ui.theme.UnsplashTheme
+import com.google.accompanist.pager.ExperimentalPagerApi
 
 enum class HomeSections(val icon: ImageVector, val route: String) {
-    Photo(Icons.TwoTone.ColorLens, "home/photo"),
+    Explore(Icons.TwoTone.ColorLens, "home/explore"),
     Search(Icons.TwoTone.Search, "home/search"),
     Add(Icons.TwoTone.AddCircle, "home/add"),
     Profile(Icons.TwoTone.EmojiPeople, "home/profile")
 }
 
+@ExperimentalPagerApi
 fun NavGraphBuilder.homeNavGraph() {
-    composable(HomeSections.Photo.route) {
-        Photo()
+    composable(HomeSections.Explore.route) {
+        Explore()
     }
     composable(HomeSections.Search.route) {
         Search()
@@ -88,7 +90,7 @@ fun UnsplashBottomBarPreView() {
         UnsplashBottomBar(
             rememberNavController(),
             tabs = HomeSections.values(),
-//            currentRoute = HomeSections.Photo.route,
+//            currentRoute = HomeSections.Explore.route,
 //            navigateToRoute = {}
         )
     }
