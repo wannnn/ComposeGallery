@@ -11,7 +11,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.blur
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -52,16 +56,16 @@ fun PhotoItem(data: ExploreData.PhotoData) {
         )
         Text(
             text = data.author,
-            modifier = Modifier
-                .padding(start = 15.dp, bottom = 15.dp)
-                .offset(
-                    x = 2.dp,
-                    y = 2.dp
-                )
-                .blur(radius = 2.dp)
-                .alpha(0.75f),
+            modifier = Modifier.padding(start = 15.dp, bottom = 15.dp),
             fontSize = 14.sp,
-            color = white
+            color = white,
+            style = TextStyle(
+                shadow = Shadow(
+                    color = Color.DarkGray,
+                    offset = Offset(6F, 8F),
+                    blurRadius = 6F
+                )
+            )
         )
     }
 }
