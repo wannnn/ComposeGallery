@@ -2,8 +2,8 @@ package com.claire.unsplash.ui.explore
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.FilterVintage
 import androidx.compose.material3.Text
@@ -41,14 +41,11 @@ fun MyAppbar() {
         },
         backgroundColor = Color.Transparent,
         navigationIcon = {
-            IconButton(onClick = {
-
-            }) {
-                Icon(
-                    Icons.TwoTone.FilterVintage
-                    , contentDescription = null
-                )
-            }
+            Icon(
+                Icons.TwoTone.FilterVintage,
+                contentDescription = null,
+                modifier = Modifier.padding(start = 16.dp)
+            )
         },
         elevation = 0.dp
     )

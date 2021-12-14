@@ -40,7 +40,7 @@ fun UnsplashApp() {
                     startDestination = HomeSections.Explore.route,
                     modifier = Modifier.padding(innerPadding)
                 ) {
-                    homeNavGraph()
+                    homeNavGraph(navController)
                 }
             }
         }

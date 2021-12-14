@@ -14,7 +14,9 @@ import com.google.accompanist.pager.rememberPagerState
 
 @ExperimentalPagerApi
 @Composable
-fun Explore() {
+fun Explore(
+    action: (destination: Destinations) -> Unit
+) {
 
     val fakeData = exploreFakeData
 
@@ -25,7 +27,12 @@ fun Explore() {
         modifier = Modifier.fillMaxWidth(),
         state = pagerState,
     ) { page ->
-        PhotoList(fakeData.tabs[page].photos)
+        PhotoList(
+            fakeData.tabs[page].photos,
+            onPhotoClick = {
+                action.invoke(Destinations.PhotoDetail)
+            }
+        )
     }
 
     Column(

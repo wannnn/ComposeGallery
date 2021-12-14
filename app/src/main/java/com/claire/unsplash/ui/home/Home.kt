@@ -16,7 +16,9 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
+import com.claire.unsplash.ui.detail.PhotoDetail
 import com.claire.unsplash.ui.theme.UnsplashTheme
 import com.google.accompanist.pager.ExperimentalPagerApi
 
@@ -27,10 +29,18 @@ enum class HomeSections(val icon: ImageVector, val route: String) {
     Profile(Icons.TwoTone.EmojiPeople, "home/profile")
 }
 
+enum class Destinations(val route: String) {
+    PhotoDetail("photo_detail")
+}
+
 @ExperimentalPagerApi
-fun NavGraphBuilder.homeNavGraph() {
+fun NavGraphBuilder.homeNavGraph(
+    navController: NavHostController
+) {
     composable(HomeSections.Explore.route) {
-        Explore()
+        Explore { destination ->
+            navController.navigate(destination.route)
+        }
     }
     composable(HomeSections.Search.route) {
         Search()
@@ -40,6 +50,14 @@ fun NavGraphBuilder.homeNavGraph() {
     }
     composable(HomeSections.Profile.route) {
         Profile()
+    }
+    composable(
+        route = Destinations.PhotoDetail.route,
+        arguments = listOf(
+            navArgument("item") {  },
+        )
+    ) {
+        PhotoDetail()
     }
 }
 

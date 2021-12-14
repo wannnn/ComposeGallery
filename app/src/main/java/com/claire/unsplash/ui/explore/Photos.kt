@@ -26,19 +26,25 @@ import com.claire.unsplash.ui.theme.UnsplashTheme
 import com.claire.unsplash.ui.theme.white
 
 @Composable
-fun PhotoList(photos: List<ExploreData.PhotoData>) {
+fun PhotoList(
+    photos: List<ExploreData.PhotoData>,
+    onPhotoClick:(data: ExploreData.PhotoData) -> Unit
+) {
     LazyColumn {
         itemsIndexed(photos) { index, item ->
-            PhotoItem(item)
+            PhotoItem(item, onPhotoClick)
         }
     }
 }
 
 @Composable
-fun PhotoItem(data: ExploreData.PhotoData) {
+fun PhotoItem(
+    data: ExploreData.PhotoData,
+    onPhotoClick:(data: ExploreData.PhotoData) -> Unit
+) {
     Box(
         modifier = Modifier.clickable {
-
+            onPhotoClick.invoke(data)
         },
         contentAlignment = Alignment.BottomStart
     ) {
@@ -74,6 +80,6 @@ fun PhotoItem(data: ExploreData.PhotoData) {
 @Composable
 fun PhotoPreview() {
     UnsplashTheme {
-        PhotoItem(photosData1[0])
+        PhotoItem(photosData1[0]) {}
     }
 }
