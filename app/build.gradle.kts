@@ -89,12 +89,13 @@ dependencies {
 
     implementation(Libs.AndroidX.Navigation.navigation)
 
-    // pager
+    // accompanist
     implementation(Libs.ThirdParty.pager)
     implementation(Libs.ThirdParty.indicators)
     implementation(Libs.ThirdParty.insets)
     implementation(Libs.ThirdParty.insets_ui)
     implementation(Libs.ThirdParty.system_ui)
+    implementation(Libs.ThirdParty.flow_layout)
 
     // okhttp
     implementation(Libs.NetWorking.okhttp)

@@ -1,6 +1,6 @@
 package com.claire.unsplash.di
 
-import com.claire.unsplash.data.AppRepoImp
+import com.claire.unsplash.data.repo.AppRepoImp
 import com.claire.unsplash.data.network.ApiService
 import com.claire.unsplash.data.network.RetrofitManager
 import com.claire.unsplash.data.repo.AppRepo

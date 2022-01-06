@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import com.claire.unsplash.ui.explore.MyAppbar
 import com.claire.unsplash.ui.explore.Tabs
 import com.claire.unsplash.ui.explore.PhotoList
-import com.claire.unsplash.ui.explore.exploreFakeData
+import com.claire.unsplash.data.uimodel.explore.exploreFakeData
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState

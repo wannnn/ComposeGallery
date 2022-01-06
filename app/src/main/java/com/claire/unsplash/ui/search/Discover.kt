@@ -1,11 +1,11 @@
-package com.claire.unsplash.ui.explore
+package com.claire.unsplash.ui.search
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material3.Text
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -14,35 +14,59 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import com.claire.unsplash.R
 import com.claire.unsplash.data.uimodel.PhotoData
-import com.claire.unsplash.data.uimodel.explore.photosData1
-import com.claire.unsplash.ui.theme.UnsplashTheme
+import com.claire.unsplash.ui.theme.green
 import com.claire.unsplash.ui.theme.white
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun PhotoList(
-    photos: List<PhotoData>,
+fun DiscoverGrid(
+    subList: List<PhotoData>,
     onPhotoClick:(data: PhotoData) -> Unit
 ) {
-    LazyColumn {
-        itemsIndexed(photos) { index, item ->
-            ExplorePhotoItem(item, onPhotoClick)
+
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceEvenly,
+        content = {
+            subList.forEach {
+                val modifier = Modifier
+                    .height(300.dp)
+                    .weight(1f)
+                    .padding(1.dp)
+
+                DiscoverPhotoItem(modifier, it, onPhotoClick)
+//                Text(
+//                    text = it,
+//                    modifier = Modifier
+//                        .height(100.dp)
+//                        .weight(1f)
+//                        .padding(1.dp)
+//                        .background(green),
+//                    fontWeight = FontWeight.Bold,
+//                    fontSize = 30.sp,
+//                    color = Color(0xFFFFFFFF),
+//                    textAlign = TextAlign.Center,
+//                )
+            }
         }
-    }
+    )
 }
 
 @Composable
-fun ExplorePhotoItem(
+fun DiscoverPhotoItem(
+    modifier: Modifier,
     data: PhotoData,
     onPhotoClick:(data: PhotoData) -> Unit
 ) {
     Box(
-        modifier = Modifier.clickable {
+        modifier = modifier.clickable {
             onPhotoClick.invoke(data)
         },
         contentAlignment = Alignment.BottomStart
@@ -56,7 +80,7 @@ fun ExplorePhotoItem(
                 }
             ),
             contentDescription = null,
-            modifier = Modifier.fillMaxSize().aspectRatio(4f/3f),
+            modifier = Modifier.fillMaxHeight(),
             contentScale = ContentScale.Crop
         )
         Text(
@@ -72,13 +96,5 @@ fun ExplorePhotoItem(
                 )
             )
         )
-    }
-}
-
-@Preview
-@Composable
-fun PhotoPreview() {
-    UnsplashTheme {
-        ExplorePhotoItem(photosData1[0]) {}
     }
 }

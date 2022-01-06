@@ -1,4 +1,6 @@
-package com.claire.unsplash.data.uimodel
+package com.claire.unsplash.data.uimodel.explore
+
+import com.claire.unsplash.data.uimodel.PhotoData
 
 data class ExploreData(
     val tabs: List<TabData> = listOf()
@@ -6,10 +8,5 @@ data class ExploreData(
     data class TabData(
         val tabName: String = "",
         val photos: List<PhotoData> = listOf()
-    )
-
-    data class PhotoData(
-        val url: String = "",
-        val author: String = ""
     )
 }
