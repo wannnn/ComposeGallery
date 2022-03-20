@@ -32,15 +32,21 @@ class UnsplashAppState(
     coroutineScope: CoroutineScope
 ) {
 
-    val bottomBarTabs = HomeSections.values()
+    /***
+     * BottomBar state source of truth
+     */
+    private val bottomBarTabs = HomeSections.values()
     private val bottomBarRoutes = bottomBarTabs.map { it.route }
 
     val shouldShowBottomBar: Boolean
         @Composable get() = navController
             .currentBackStackEntryAsState().value?.destination?.route in bottomBarRoutes
 
+    /***
+     * Navigation state source of truth
+     */
     val currentRoute: String?
-        get() = navController.currentBackStackEntry?.destination?.route
+        get() = navController.currentDestination?.route
 
     fun upPress() {
         navController.navigateUp()
@@ -51,6 +57,10 @@ class UnsplashAppState(
             navController.navigate(route) {
                 launchSingleTop = true
                 restoreState = true
+
+                // This if check gives us a "singleTop" behavior where we do not create a
+                // second instance of the composable if we are already on that destination
+
                 // Pop up backstack to the first destination and save state. This makes going back
                 // to the start destination when pressing back in any other bottom tab.
                 popUpTo(navController.graph.startDestinationId) {
