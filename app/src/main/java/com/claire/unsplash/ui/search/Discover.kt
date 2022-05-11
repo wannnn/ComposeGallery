@@ -1,7 +1,6 @@
 package com.claire.unsplash.ui.search
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
@@ -12,10 +11,12 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.rememberImagePainter
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.claire.unsplash.R
 import com.claire.unsplash.data.uimodel.PhotoData
 import com.claire.unsplash.ui.theme.white
@@ -24,7 +25,7 @@ import com.claire.unsplash.ui.theme.white
 @Composable
 fun DiscoverGrid(
     subList: List<PhotoData>,
-    onPhotoClick:(data: PhotoData) -> Unit
+    onPhotoClick: (data: PhotoData) -> Unit
 ) {
 
     Row(
@@ -47,7 +48,7 @@ fun DiscoverGrid(
 fun DiscoverPhotoItem(
     modifier: Modifier,
     data: PhotoData,
-    onPhotoClick:(data: PhotoData) -> Unit
+    onPhotoClick: (data: PhotoData) -> Unit
 ) {
     Box(
         modifier = modifier.clickable {
@@ -55,14 +56,12 @@ fun DiscoverPhotoItem(
         },
         contentAlignment = Alignment.BottomStart
     ) {
-        Image(
-            painter = rememberImagePainter(
-                data = data.url,
-                builder = {
-                    crossfade(true)
-                    placeholder(R.drawable.placeholder)
-                }
-            ),
+        AsyncImage(
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(data.url)
+                .placeholder(R.drawable.placeholder)
+                .crossfade(true)
+                .build(),
             contentDescription = null,
             modifier = Modifier.fillMaxHeight(),
             contentScale = ContentScale.Crop

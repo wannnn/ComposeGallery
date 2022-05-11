@@ -14,7 +14,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navArgument
 import com.claire.unsplash.ui.detail.PhotoDetail
 import com.claire.unsplash.ui.theme.UnsplashTheme
 import com.google.accompanist.pager.ExperimentalPagerApi
@@ -49,10 +48,7 @@ fun NavGraphBuilder.homeNavGraph(
         Profile()
     }
     composable(
-        route = Destinations.PhotoDetail.route,
-        arguments = listOf(
-            navArgument("item") {  },
-        )
+        route = Destinations.PhotoDetail.route
     ) {
         PhotoDetail()
     }

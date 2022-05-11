@@ -65,6 +65,7 @@ class UnsplashAppState(
                 // to the start destination when pressing back in any other bottom tab.
                 popUpTo(navController.graph.startDestinationId) {
                     saveState = true
+                    inclusive = true
                 }
             }
         }

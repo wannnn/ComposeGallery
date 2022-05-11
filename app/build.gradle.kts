@@ -72,10 +72,7 @@ dependencies {
     androidTestImplementation(Libs.AndroidX.Compose.composeUiTest)
     debugImplementation(Libs.AndroidX.Compose.composeTool)
 
-    implementation(Libs.AndroidX.constraintCompose)
-
     implementation(Libs.AndroidX.Lifecycle.lifecycle)
-    implementation(Libs.AndroidX.Lifecycle.lifecycleViewModel)
 
     implementation(Libs.AndroidX.Activity.activityCompose)
     implementation(Libs.AndroidX.Activity.activityKtx)
