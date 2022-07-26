@@ -1,26 +1,26 @@
 object Versions {
-    const val compileSdk = 31
-    const val buildToolsVersion = "31.0.0"
-    const val minSdk = 21
-    const val targetSdk = 31
+    const val compileSdk = 32
+    const val buildToolsVersion = "32.0.0"
+    const val minSdk = 26
+    const val targetSdk = 32
     const val versionCode = 1
     const val versionName = "1.0"
 
-    const val gradle = "7.0.0"
-    const val kotlin = "1.6.10"
-    const val core = "1.7.0"
+    const val gradle = "7.1.2"
+    const val kotlin = "1.7.0"
+    const val kotlinCompilerVersion = "1.2.0"
+    const val core = "1.8.0"
     const val appCompat = "1.4.1"
     const val material = "1.4.0"
-    const val activityCompose = "1.3.1"
+    const val activityCompose = "1.4.0"
     const val activityKtx = "1.4.0"
-    const val compose = "1.2.0-alpha07"
-    const val compose_material3 = "1.0.0-alpha09"
-    const val lifecycle = "2.4.1"
-    const val coil = "2.0.0-rc03"
-    const val daggerHilt = "2.38.1"
+    const val compose = "1.2.0-rc03"
+    const val lifecycle = "2.5.0"
+    const val coil = "2.1.0"
+    const val daggerHilt = "2.42"
     const val hiltNavigation = "1.0.0"
-    const val navigation = "2.4.2"
-    const val accompanist = "0.23.1"
+    const val navigation = "2.5.0"
+    const val accompanist = "0.24.8-beta"
     const val okhttp = "4.9.3"
     const val retrofit = "2.9.0"
     const val retrofitConverter = "0.8.0"
@@ -35,9 +35,8 @@ object Libs {
     const val junit = "junit:junit:4.+"
 
     object Kotlin {
-        const val kgp = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+        const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.serialization}"
-        const val extensions = "org.jetbrains.kotlin:kotlin-android-extensions:${Versions.kotlin}"
     }
 
     object NetWorking {
@@ -59,7 +58,6 @@ object Libs {
         object Compose {
             const val composeUi = "androidx.compose.ui:ui:${Versions.compose}"
             const val composeMaterial = "androidx.compose.material:material:${Versions.compose}"
-            const val composeMaterial3 = "androidx.compose.material3:material3:${Versions.compose_material3}"
             const val composeMaterialExtended = "androidx.compose.material:material-icons-extended:${Versions.compose}"
             const val composeRuntime = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
             const val composeToolPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
@@ -92,7 +90,6 @@ object Libs {
         const val coil = "io.coil-kt:coil-compose:${Versions.coil}"
         const val pager = "com.google.accompanist:accompanist-pager:${Versions.accompanist}"
         const val indicators = "com.google.accompanist:accompanist-pager-indicators:${Versions.accompanist}"
-        const val insets = "com.google.accompanist:accompanist-insets:${Versions.accompanist}"
         const val insets_ui = "com.google.accompanist:accompanist-insets-ui:${Versions.accompanist}"
         const val system_ui = "com.google.accompanist:accompanist-systemuicontroller:${Versions.accompanist}"
         const val flow_layout = "com.google.accompanist:accompanist-flowlayout:${Versions.accompanist}"

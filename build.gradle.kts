@@ -6,7 +6,7 @@ buildscript {
     }
     dependencies {
         classpath(Libs.gradle)
-        classpath(Libs.Kotlin.kgp)
+        classpath(Libs.Kotlin.kotlinGradlePlugin)
         classpath(Libs.AndroidX.Hilt.daggerHiltPlugin)
 
         // NOTE: Do not place your application dependencies here; they belong

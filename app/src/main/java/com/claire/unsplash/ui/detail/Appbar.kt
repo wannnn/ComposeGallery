@@ -2,27 +2,23 @@ package com.claire.unsplash.ui.detail
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.IosShare
-import androidx.compose.material.icons.twotone.Share
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.claire.unsplash.ui.theme.white
-import com.google.accompanist.insets.LocalWindowInsets
-import com.google.accompanist.insets.rememberInsetsPaddingValues
 
 @Composable
 fun Appbar(authorName: String) {
     Row(
         modifier = Modifier
-            .padding(rememberInsetsPaddingValues(insets = LocalWindowInsets.current.statusBars))
+            .statusBarsPadding()
             .height(56.dp)
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,

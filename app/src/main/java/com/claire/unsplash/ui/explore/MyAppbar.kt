@@ -3,10 +3,11 @@ package com.claire.unsplash.ui.explore
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.Icon
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.FilterVintage
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,8 +18,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.claire.unsplash.R
 import com.claire.unsplash.ui.theme.white
-import com.google.accompanist.insets.LocalWindowInsets
-import com.google.accompanist.insets.rememberInsetsPaddingValues
 import com.google.accompanist.insets.ui.TopAppBar
 
 @Composable
@@ -27,9 +26,7 @@ fun MyAppbar() {
     // We use TopAppBar from accompanist-insets-ui which allows us to provide
     // content padding matching the system bars insets.
     TopAppBar(
-        contentPadding = rememberInsetsPaddingValues(
-            insets = LocalWindowInsets.current.statusBars
-        ),
+        modifier = Modifier.statusBarsPadding(),
         title = {
             Text(
                 modifier = Modifier.fillMaxWidth(),

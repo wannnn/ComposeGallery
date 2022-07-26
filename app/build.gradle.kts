@@ -1,9 +1,9 @@
 plugins {
     id("com.android.application")
-    kotlin("android")
+    id("org.jetbrains.kotlin.android")
     kotlin("kapt")
-    id("org.jetbrains.kotlin.plugin.serialization") version Versions.kotlin
     id("dagger.hilt.android.plugin")
+    id("org.jetbrains.kotlin.plugin.serialization") version Versions.kotlin
 }
 
 android {
@@ -36,8 +36,17 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.kotlinCompilerVersion
+    }
+
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    // Allow references to generated code
+    kapt {
+        correctErrorTypes = true
     }
 
     buildFeatures {
@@ -45,7 +54,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.compose
+        kotlinCompilerExtensionVersion = Versions.kotlinCompilerVersion
     }
 
     packagingOptions {
@@ -65,7 +74,6 @@ dependencies {
 
     implementation(Libs.AndroidX.Compose.composeUi)
     implementation(Libs.AndroidX.Compose.composeMaterial)
-    implementation(Libs.AndroidX.Compose.composeMaterial3)
     implementation(Libs.AndroidX.Compose.composeMaterialExtended)
     implementation(Libs.AndroidX.Compose.composeRuntime)
     implementation(Libs.AndroidX.Compose.composeToolPreview)
@@ -89,7 +97,6 @@ dependencies {
     // accompanist
     implementation(Libs.ThirdParty.pager)
     implementation(Libs.ThirdParty.indicators)
-    implementation(Libs.ThirdParty.insets)
     implementation(Libs.ThirdParty.insets_ui)
     implementation(Libs.ThirdParty.system_ui)
     implementation(Libs.ThirdParty.flow_layout)
